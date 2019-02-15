@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0
+    }
+    .contain{
+        margin:100px auto;
+        width:200px;
+        height:200px;
+        animation: rotate 5s linear normal infinite;
+        position: relative;
+        transform: rotate3d(1,1,0,0deg);
+        /*让子元素保留3d变换之后的效果*/
+        transform-style: preserve-3d;
+        /*添加透视景深效果*/
+        perspective: 0px;
+        /*设置透视的观察角度*/
+        perspective-origin: 0px 0px;
+    }
+    .contain>div{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        font-size: 40px;
+        font-weight: bold;
+        left:0;
+        top:0;
+        text-align: center;
+        line-height: 200px;
+        opacity:0.5;
+        filter:opacity(50);
+    }
+    .contain div:nth-of-type(1){
+        background-color:blue;
+        transform:translateZ(100px);
+    }
+    .contain div:nth-of-type(2){
+        background-color:orange;
+        transform:translateY(-100px) rotateX(90deg);
+    }
+    .contain div:nth-of-type(3){
+        background-color:green;
+        transform:translateY(100px) rotateX(-90deg);
+    }
+    .contain div:nth-of-type(4){
+        background-color:pink;
+        transform:translateX(100px) rotateY(90deg);
+    }
+    .contain div:nth-of-type(5){
+        background-color:red;
+        transform:translateX(-100px) rotateY(-90deg);
+    }
+    .contain div:nth-of-type(6){
+        background-color:purple;
+        transform:translateZ(-100px) rotateY(180deg);
+    }
+    
+        
+    
+    @keyframes rotate {
+        0%{transform: rotate3d(1,1,0,0deg);}
+        100%{transform: rotate3d(1,1,0,360deg);}
+    }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <div>●</div>
+        <div>●●</div>
+        <div>●●●</div>
+        <div>●●●●</div>
+        <div>●●●●●</div>
+        <div>●●●●●●</div>
+    </div>
+</body>
+</html>
